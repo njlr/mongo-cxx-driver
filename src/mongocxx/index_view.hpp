@@ -15,11 +15,13 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include <bsoncxx/document/value.hpp>
+#include <mongocxx/collection.hpp>
 #include <mongocxx/cursor.hpp>
 #include <mongocxx/index_model.hpp>
-#include <mongocxx/index_names.hpp>
+#include <mongocxx/private/libmongoc.hh>
 
 #include <mongocxx/config/prelude.hpp>
 
@@ -31,12 +33,12 @@ class MONGOCXX_API index_view {
     ///
     /// Create an index_view object.
     ///
-    index_view();
+    index_view(mongoc_collection_t* coll);
 
     ///
     /// Returns a cursor over all the indexes.
     ///
-    cursor iterator();
+    cursor list();
 
     ///
     /// Creates an index. A convenience method that calls create_many.
@@ -52,12 +54,12 @@ class MONGOCXX_API index_view {
     ///
     /// Adds a container of indexes to the collection.
     ///
-    /// @tparam containter_type
+    /// @tparam container_type
     ///   The container type. Must meet the requirements for the container concept with a value
     ///   type of index_model.
     ///
     template <typename container_type>
-    index_names create_many(const container_type& indexes);
+    MONGOCXX_INLINE std::vector<std::string> create_many(const container_type& indexes);
 
     ///
     /// Drops a single index by name.
@@ -88,7 +90,16 @@ class MONGOCXX_API index_view {
     /// Drops all indexes in the collection.
     ///
     void drop_all();
+
+   private:
+    mongoc_collection_t* _coll;
 };
+
+template <typename container_type>
+MONGOCXX_INLINE std::vector<std::string> index_view::create_many(const container_type& indexes) {
+    std::vector<std::string> created_names;
+    return created_names;
+}
 
 MONGOCXX_INLINE_NAMESPACE_END
 }  // namespace mongocxx
