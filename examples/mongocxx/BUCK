@@ -1,0 +1,20 @@
+macos_linker_flags = [
+  '-framework',
+  'CoreFoundation',
+  '-framework',
+  'Security',
+]
+
+cxx_binary(
+  name = 'aggregate',
+  srcs = [
+    'aggregate.cpp',
+  ],
+  platform_linker_flags = [
+    ('default', macos_linker_flags),
+    ('^macos.*', macos_linker_flags),
+  ],
+  deps = [
+    '//:mongocxx',
+  ],
+)

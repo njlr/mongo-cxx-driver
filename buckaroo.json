@@ -1,0 +1,9 @@
+{
+  "name": "mongo-cxx-driver",
+  "target": "mongocxx",
+  "dependencies": {
+    "github+njlr/bson": "1.7.0",
+    "github+njlr/mnmlstc-core": "1.1.0",
+    "github+njlr/mongo-c-driver": "1.7.0"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "github+njlr/bson": {
+    "source": {
+      "url": "https://github.com/njlr/bson/archive/3fab6b2c7964beeb107b78e1a253098c1c3b473f.zip",
+      "sha256": "846ddda91715ccf083feba6c673c3ab8f0a98b0eb3fc0899c9838f7d9a7ada26",
+      "subPath": "/bson-3fab6b2c7964beeb107b78e1a253098c1c3b473f"
+    },
+    "target": "bson"
+  },
+  "github+njlr/mnmlstc-core": {
+    "source": {
+      "url": "https://github.com/njlr/mnmlstc-core/archive/e5658de19f08da4531c8d027fed048c3847189f4.zip",
+      "sha256": "5b74ad4061f5193c9ce285d78c0a781ba6eff9c1aecd15c20deb103754dcdfb3",
+      "subPath": "/mnmlstc-core-e5658de19f08da4531c8d027fed048c3847189f4"
+    },
+    "target": "core",
+    "dependencies": [
+      "github.njlr.mnmlstc-unittest//:unittest"
+    ]
+  },
+  "github+njlr/mnmlstc-unittest": {
+    "source": {
+      "url": "https://github.com/njlr/mnmlstc-unittest/archive/c901b925dda2c7ae3c73e0b095a46d7956a9c8e3.zip",
+      "sha256": "68cf3829c81725d0e2a886567d6f0251583a71d2cf30f0dbcf8042c3d8cb5782",
+      "subPath": "/mnmlstc-unittest-c901b925dda2c7ae3c73e0b095a46d7956a9c8e3"
+    },
+    "target": "unittest"
+  },
+  "github+njlr/mongo-c-driver": {
+    "source": {
+      "url": "https://github.com/njlr/mongo-c-driver/archive/1bc04f3de6591471a424ee78238429b4ac2474c3.zip",
+      "sha256": "8e77ebb020da8032c3d4f49d81afa4d956d6baf2a8d7007dd3b013796ad31b70",
+      "subPath": "/mongo-c-driver-1bc04f3de6591471a424ee78238429b4ac2474c3"
+    },
+    "target": "mongoc",
+    "dependencies": [
+      "github.njlr.bson//:bson",
+      "madler.zlib//:zlib"
+    ]
+  },
+  "madler/zlib": {
+    "source": {
+      "url": "https://github.com/madler/zlib/archive/cacf7f1d4e3d44d871b605da3b647f07d718623f.zip",
+      "sha256": "1cce3828ec2ba80ff8a4cac0ab5aa03756026517154c4b450e617ede751d41bd",
+      "subPath": "zlib-cacf7f1d4e3d44d871b605da3b647f07d718623f"
+    },
+    "buck": {
+      "url": "https://raw.githubusercontent.com/njlr/zlib/c99d7665173f5b04f1aa106016c5df3632e1f8cd/BUCK",
+      "sha256": "39540f57581a5e63b3d4f0e17a2967ae8f9df3521b085cb6dc230a2e37f30466"
+    }
+  }
+}

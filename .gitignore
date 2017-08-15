@@ -8,3 +8,9 @@
 
 # OSX
 .DS_Store
+
+/.buckd/
+/buck-out/
+/buckaroo/
+.buckconfig.local
+BUCKAROO_DEPS
